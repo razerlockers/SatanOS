@@ -37,7 +37,7 @@ clear_screen_blue:
     loop .clear_loop
     ret
 
-; i find my friends. They are in my head
+; shit
 wait_key:
     mov ah, 0x00
     int 0x16
@@ -75,7 +75,7 @@ process_key:
     cmp al, 0x1B
     je main_gui
     
-    ; Tab navigation
+    ; WHEN THE LIGHTS OUT ITS LESS DANGEROUS 
     cmp al, '1'
     je .tab_apps
     cmp al, '2' 
@@ -89,14 +89,14 @@ process_key:
     cmp al, '7'
     je .tab_system
     
-    ; im so fucking special
+    ; I FEEL STUPID AND CONTAGIOUS
     cmp byte [current_tab], 4
     jne .check_apps
     cmp al, 'j'
     je .lobotomy
     
 .check_apps:
-    ; App launches (only in apps tab)
+    ; HERE WE ARE NOW ENTERTAIN US
     cmp byte [current_tab], 0
     jne .check_other
     
@@ -120,7 +120,7 @@ process_key:
     je launch_we_are_done
     
 .check_other:
-    ; Fate decision (only in about tab)
+    ; Fate decision :D
     cmp byte [current_tab], 2
     jne .check_commands
     
@@ -186,9 +186,9 @@ process_key:
     call show_helpme_tab
     ret
 
-; my name is razer the locker
+; my name is razer the locker 
 draw_tabs:
-    ; Clear top two rows for tabs
+    ; IM YOUR EYES WHEN YOU MUST STEAL
     mov dh, 0
     mov dl, 0
     call set_cursor
@@ -428,7 +428,7 @@ show_about_tab:
     
     ret
 
-; im a terrible person
+; IM YOUR LIFE IM THE ONE WHO CARES THEY-THEY BETRAY IM FOREVER THERE IM YOUR DREAM MAKE YOU REAL
 show_noescape_tab:
     call clear_content
     
@@ -438,7 +438,7 @@ show_noescape_tab:
     mov si, noescape_title
     call print_string
     
-    ; she wants me yeah definetly she loves me hehehehe :DD
+    ; IM YOUR PAIN WHEN YOU CANT FEEL
     mov dh, 5
     mov dl, 3
     call set_cursor
@@ -519,7 +519,7 @@ show_noescape_tab:
     
     ret
 
-; I HATE HER SHE DOES NOT WANTS ME 
+; YOU KNOW ITS SAD BUT TRUE!
 show_helpme_tab:
     call clear_content
     
@@ -532,7 +532,7 @@ show_helpme_tab:
     cmp byte [helpme_state], 0
     je .initial_state
     
-    ; im so sad :(
+    ; YO YO YOU ARE MY MASK
     mov dh, 8
     mov dl, 5
     call set_cursor
@@ -592,7 +592,7 @@ show_helpme_tab:
     call print_string
     ret
 
-; i love her
+; IM YOUR EYES WHILE YOUR AWAKE
 show_system_tab:
     call clear_content
     
@@ -602,7 +602,7 @@ show_system_tab:
     mov si, system_title
     call print_string
     
-    ; damn
+    ; SLEEP WITH ONE EYE OPEN, GRIPPING YOUR PILLOW THIGHT
     mov dh, 5
     mov dl, 5
     call set_cursor
@@ -697,7 +697,7 @@ show_system_tab:
     
     ret
 
-; Clear me from world
+; EXIT LIGHT ENTER NIGHT TAKE MY HAND WE'RE OFF TO NEVER-NEVER LAND HAHA
 clear_content:
     mov dh, 3
 .clear_rows:
@@ -714,7 +714,7 @@ clear_content:
     jl .clear_rows
     ret
 
-; im not scared
+; SOMETHINGS WRONG 
 
 set_cursor:
     mov ah, 0x02
@@ -722,8 +722,8 @@ set_cursor:
     int 0x10
     ret
 
-; i dont belong this world
-; help me
+; CHANGE THE WORLD CHANGE THE LIFE
+; SLEEP WITH ONE EYE OPEN
 print_string:
     mov ah, 0x0E
     mov bl, 0x1F
@@ -736,17 +736,17 @@ print_string:
 .done:
     ret
 
-; no
-; please help me
+; EXIT LIGHT
+; ENTER NIGHT
 print_char_repeat:
     mov ah, 0x09
     mov bh, 0x00
     int 0x10
     ret
 
-; ========== my beatiful apps better than her probably ==========
+; ========== my beatiful apps better than your deadass==========
 
-; casio calc
+; multifunctional supersmart ultra green massive calculator
 launch_calculator:
     call clear_screen_blue
     mov dh, 10
@@ -758,7 +758,7 @@ launch_calculator:
     call main_gui
     ret
 
-; the tool i will wrote my last notes with
+; HELL YEAHAHAHHAAHAHAH 
 launch_notepad:
     call clear_screen_blue
     mov dh, 10
@@ -820,7 +820,7 @@ launch_whoami:
     call main_gui
     ret
 
-; i was swimmed in the carrabean
+; i was swimming in the carrabean
 launch_we_are_done:
     call clear_screen_blue
     
@@ -1152,7 +1152,7 @@ cpu_bar: db "[======", 0
 gpu_bar: db "[", 0
 ram_bar: db "[========", 0
 
-; sırpski film director
+; GRAVE OBSESSION
 we_are_done_title: db "WE ARE DONE", 0
 we_are_done1: db "In those days Ashtar Sheran sent his", 0
 we_are_done2: db "Pterodactylus demons to madden men", 0
@@ -1164,7 +1164,7 @@ we_are_done7: db "", 0
 we_are_done8: db "Thus saith the Lord: We were warred", 0
 we_are_done9: db "upon from the stars, and we won. Selah.", 0
 
-; App cloud
+; TAKE MY HAND WE'RE OFF TO NEVER-NEVER LAND HEHEHEHEHEHEHE
 calc_msg: db "Calculator: Basic math operations", 0
 notepad_msg: db "Notepad: Simple text editor", 0
 elephant_msg: db "Ride Elephant Game", 0
@@ -1185,7 +1185,7 @@ fate3_msg: db "3) you will die.", 0
 fate4_msg: db "4) your life looks fucked up.", 0
 fate5_msg: db "5) enough for you.", 0
 
-; please help - today
+; I am the angel of death.
 cmd_help_msg: db "Available: /help, /dir, /satan, /kill, /reboot, /isit2038, /thedateworldwillend", 0
 cmd_dir_msg: db "Files: boot.asm, kernel.asm, gui.asm, system.sys", 0
 cmd_satan_msg: db "You are inside of my walls. Your god is blind here. I decide your fate.", 0
