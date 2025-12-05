@@ -9,10 +9,11 @@ start:
     mov ss, ax
     mov sp, 0x7C00
     
-    ; i miss her
+    ; mosquito
     call main_gui
     
-    ; Hang if returned (yeah thing i will do to myself)
+    ; yo wsp
     jmp $
 
 %include "gui.asm"
+
